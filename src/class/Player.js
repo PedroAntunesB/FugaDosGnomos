@@ -20,10 +20,11 @@ export class Player {
         }
         this.sprite.body.setSize(100, 150)
 
-        // Parte Gnomo
         const chapeu = new Chapeu(chapeuCor, Math.floor(Math.random() * 10) + 20);
         this.typeGnomo = new GnomoFactory(typeGnomo, 'Jorge', chapeu);
         this.speed = (this.typeGnomo.velocidade) * chapeu.modificadorSorte;
+
+        this.isAlive = true;
     }
 
 
@@ -58,12 +59,11 @@ export class Player {
 
 
     update() {
-        const speed = 200;
         this.sprite.setVelocity(0);
         if (this.typePlayer == 1) {
-            this.movimentoPlayer1(this.speed);
+            this.isAlive ? this.movimentoPlayer1(this.speed) : 0
         } else {
-            this.movimentoPlayer2(this.speed)
+            this.isAlive ? this.movimentoPlayer2(this.speed) : 0
         }
     }
 }

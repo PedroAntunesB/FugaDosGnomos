@@ -19,15 +19,19 @@ export class MainScene extends Phaser.Scene {
         this.load.image('chegada', '../public/img/chegada.png');
     }
 
+    init(data) {
+        this.playersData = data.playersData;
+    }
+
     create() {
         const screenWidth = this.cameras.main.width
         const screenHeight = this.cameras.main.height
         this.add.image(screenWidth / 2, screenHeight / 2, 'fundo').setDisplaySize(screenWidth, screenHeight);
 
-        const corPlayer1 = 'branco';
-        const corPlayer2 = 'marrom';
-        this.player1 = new Player(this, corPlayer1, 200, 500, 1, GnomoVeloz, 'branco');
-        this.player2 = new Player(this, corPlayer2, 200, 600, 2, GnomoAzarado, 'marrom');
+        const typeGnomePlayer1 = this.playersData[0].type;
+        const typeGnomePlayer2 = this.playersData[1].type;
+        this.player1 = new Player(this, 200, 500, 1, typeGnomePlayer1 == "Veloz" ? GnomoVeloz : GnomoAzarado, this.playersData[0].hatColor, this.playersData[0].name);
+        this.player2 = new Player(this, 200, 600, 2, typeGnomePlayer2 == "Veloz" ? GnomoVeloz : GnomoAzarado, this.playersData[1].hatColor, this.playersData[1].name);
         this.linhaChegada = new FinishLine(this, 'chegada', 1980, 550)
         this.obs = new Obstacle(this, 'bola', 500, 700);
         this.obs3 = new Obstacle(this, 'cachorro', 1000, 200);

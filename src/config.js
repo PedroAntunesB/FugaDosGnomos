@@ -1,3 +1,4 @@
+import { CharacterSelect } from "./class/scenes/CharacterScene";
 import { InicialScene } from "./class/scenes/InicialScene";
 import { MainScene } from "./class/scenes/MainScene";
 import { VictoryScene } from "./class/scenes/VictoryScene";
@@ -18,7 +19,7 @@ const config = {
         autoCenter: Phaser.Scale.CENTER_BOTH,
     },
     backgroundColor: '#2c9af5',
-    scene: [InicialScene, MainScene, VictoryScene]
+    scene: [InicialScene, CharacterSelect, MainScene, VictoryScene]
 };
 
 export default config;

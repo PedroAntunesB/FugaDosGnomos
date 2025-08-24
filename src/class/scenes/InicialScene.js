@@ -17,8 +17,8 @@ export class InicialScene extends Phaser.Scene {
         const screenHeight = this.cameras.main.height;
         this.add.image(screenWidth / 2, screenHeight / 2, 'background').setDisplaySize(screenWidth, screenHeight);
         // Tive que desligar pq trava minha maquina
-        // this.music = this.sound.add('bgMusic', { loop: true, volume: 0.5 });
-        // this.music.play();
+        this.music = this.sound.add('bgMusic', { loop: true, volume: 0.5 });
+        this.music.play();
 
         const playButton = this.add.image(screenWidth / 2, screenHeight * 0.8, 'playButton')
             .setInteractive()
@@ -30,7 +30,7 @@ export class InicialScene extends Phaser.Scene {
             .setScale(1.0);
 
         playButton.on('pointerdown', () => {
-            this.scene.start('MainScene');
+            this.scene.start('CharacterSelect');
         });
     }
 }

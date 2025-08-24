@@ -1,4 +1,4 @@
-# FugaDosGnomos
+# Jogo: Fuga Dos Gnomos
 
 ## 🎮 Descrição
 
@@ -16,7 +16,7 @@ Um jogo arcade simples em que você controla gnomos para atravessar o jardim e f
 
 ```bash
 git clone LinkDoRepositorio
-cd caminho/do/arquivo
+cd caminho/da/pasta
 npm i
 npm run dev
 ```

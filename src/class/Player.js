@@ -2,10 +2,11 @@ import Phaser from "phaser";
 import { Chapeu } from "./gnomo/Chapeu";
 import { GnomoFactory } from "./gnomo/GnomoFactory";
 export class Player {
-    constructor(scene, texture, x, y, typePlayer, typeGnomo, chapeuCor) {
+    constructor(scene, x, y, typePlayer, typeGnomo, chapeuCor, nome) {
         this.typePlayer = typePlayer;
         this.scene = scene;
-        this.sprite = this.scene.physics.add.sprite(x, y, texture);
+        this.texture = chapeuCor;
+        this.sprite = this.scene.physics.add.sprite(x, y, this.texture);
         this.sprite.setCollideWorldBounds(true);
         this.sprite.setScale(0.25);
         if (typePlayer == 1) {
@@ -21,7 +22,7 @@ export class Player {
         this.sprite.body.setSize(100, 150)
 
         const chapeu = new Chapeu(chapeuCor, Math.floor(Math.random() * 10) + 20);
-        this.typeGnomo = new GnomoFactory(typeGnomo, 'Jorge', chapeu);
+        this.typeGnomo = new GnomoFactory(typeGnomo, nome, chapeu);
         this.speed = (this.typeGnomo.velocidade) * chapeu.modificadorSorte;
 
         this.isAlive = true;
